@@ -62,6 +62,11 @@ var EventHandlers = {
     this.changeSlide(options)
   },
   swipeStart: function (e) {
+    if (this.props.swipePreventOnVerticalScroll) {
+      e.preventDefault();
+      return;
+    }
+
     var touches, posX, posY;
 
     if ((this.props.swipe === false) || ('ontouchend' in document && this.props.swipe === false)) {
@@ -82,6 +87,11 @@ var EventHandlers = {
     });
   },
   swipeMove: function (e) {
+    if (this.props.swipePreventOnVerticalScroll) {
+      e.preventDefault();
+      return;
+    }
+
     if (!this.state.dragging) {
       e.preventDefault();
       return;
@@ -231,6 +241,11 @@ var EventHandlers = {
     }
   },
   swipeEnd: function (e) {
+    if (this.props.swipePreventOnVerticalScroll) {
+      e.preventDefault();
+      return;
+    }
+
     if (!this.state.dragging) {
       e.preventDefault();
       return;

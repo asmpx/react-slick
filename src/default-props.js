@@ -32,6 +32,7 @@ var defaultProps = {
     speed: 500,
     swipe: true,
     swipeToSlide: false,
+    swipePreventOnVerticalScroll: true, // do not swipe while window scrolling
     touchMove: true,
     touchThreshold: 5,
     useCSS: true,
