@@ -558,6 +558,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this.changeSlide(options);
 	  },
 	  swipeStart: function swipeStart(e) {
+	    if (this.props.swipePreventOnVerticalScroll) {
+	      e.preventDefault();
+	      return;
+	    }
+
 	    var touches, posX, posY;
 
 	    if (this.props.swipe === false || 'ontouchend' in document && this.props.swipe === false) {
@@ -578,6 +583,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	  },
 	  swipeMove: function swipeMove(e) {
+	    if (this.props.swipePreventOnVerticalScroll) {
+	      e.preventDefault();
+	      return;
+	    }
+
 	    if (!this.state.dragging) {
 	      e.preventDefault();
 	      return;
@@ -730,6 +740,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 
 	  swipeEnd: function swipeEnd(e) {
+	    if (this.props.swipePreventOnVerticalScroll) {
+	      e.preventDefault();
+	      return;
+	    }
+
 	    if (!this.state.dragging) {
 	      e.preventDefault();
 	      return;
@@ -1500,6 +1515,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    speed: 500,
 	    swipe: true,
 	    swipeToSlide: false,
+	    swipePreventOnVerticalScroll: true, // do not swipe while window scrolling
 	    touchMove: true,
 	    touchThreshold: 5,
 	    useCSS: true,
