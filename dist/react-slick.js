@@ -1191,12 +1191,31 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return elem.getBoundingClientRect().height || elem.offsetHeight;
 	  },
 
-	  adaptHeight: function adaptHeight() {
+	  /*adaptHeight: function () {
 	    if (this.props.adaptiveHeight) {
-	      var selector = '[data-index="' + this.state.currentSlide + '"]';
+	      var selector = '[data-index="' + this.state.currentSlide +'"]';
 	      if (this.list) {
-	        var slickList = _reactDom2.default.findDOMNode(this.list);
+	        var slickList = ReactDOM.findDOMNode(this.list);
 	        slickList.style.height = slickList.querySelector(selector).offsetHeight + 'px';
+	      }
+	    }
+	  },*/
+	  adaptHeight: function adaptHeight() {
+	    if (this.props.adaptiveHeight && this.list) {
+	      var slickList = _reactDom2.default.findDOMNode(this.list);
+	      var selector = '.slick-slide.slick-active';
+	      var slickActives = slickList.querySelectorAll(selector);
+
+	      if (slickActives.length) {
+	        var height = slickActives[0].offsetHeight;
+
+	        if (slickActives.length > 1) {
+	          for (var i = 1; i < slickActives.length; i++) {
+	            height = slickActives[i].offsetHeight > height ? slickActives[i].offsetHeight : height;
+	          }
+	        }
+
+	        slickList.style.height = height + 'px';
 	      }
 	    }
 	  },
