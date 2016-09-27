@@ -62,8 +62,7 @@ var EventHandlers = {
     this.changeSlide(options)
   },
   swipeStart: function (e) {
-    if (this.props.swipePreventOnVerticalScroll) {
-      e.preventDefault();
+    if (this.props.swipeDisabled) {
       return;
     }
 
@@ -87,8 +86,7 @@ var EventHandlers = {
     });
   },
   swipeMove: function (e) {
-    if (this.props.swipePreventOnVerticalScroll) {
-      e.preventDefault();
+    if (this.props.swipeDisabled) {
       return;
     }
 
@@ -241,8 +239,7 @@ var EventHandlers = {
     }
   },
   swipeEnd: function (e) {
-    if (this.props.swipePreventOnVerticalScroll) {
-      e.preventDefault();
+    if (this.props.swipeDisabled) {
       return;
     }
 
