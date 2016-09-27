@@ -558,8 +558,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this.changeSlide(options);
 	  },
 	  swipeStart: function swipeStart(e) {
-	    if (this.props.swipePreventOnVerticalScroll) {
-	      e.preventDefault();
+	    if (this.props.swipeDisabled) {
 	      return;
 	    }
 
@@ -583,8 +582,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	  },
 	  swipeMove: function swipeMove(e) {
-	    if (this.props.swipePreventOnVerticalScroll) {
-	      e.preventDefault();
+	    if (this.props.swipeDisabled) {
 	      return;
 	    }
 
@@ -740,8 +738,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 
 	  swipeEnd: function swipeEnd(e) {
-	    if (this.props.swipePreventOnVerticalScroll) {
-	      e.preventDefault();
+	    if (this.props.swipeDisabled) {
 	      return;
 	    }
 
@@ -1534,7 +1531,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    speed: 500,
 	    swipe: true,
 	    swipeToSlide: false,
-	    swipePreventOnVerticalScroll: true, // do not swipe while window scrolling
+	    swipeDisabled: false, // do not swipe while window vertical scrolling or input focus
 	    touchMove: true,
 	    touchThreshold: 5,
 	    useCSS: true,
