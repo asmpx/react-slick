@@ -63,6 +63,10 @@ var EventHandlers = {
   },
   swipeStart: function (e) {
     if (this.props.swipeDisabled) {
+      this.setState({
+        dragging: false
+      });
+
       return;
     }
 
@@ -87,6 +91,10 @@ var EventHandlers = {
   },
   swipeMove: function (e) {
     if (this.props.swipeDisabled) {
+      this.setState({
+        dragging: false
+      });
+
       return;
     }
 
@@ -240,6 +248,10 @@ var EventHandlers = {
   },
   swipeEnd: function (e) {
     if (this.props.swipeDisabled) {
+      this.setState({
+        dragging: false
+      });
+
       return;
     }
 

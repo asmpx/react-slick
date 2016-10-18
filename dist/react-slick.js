@@ -559,6 +559,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  swipeStart: function swipeStart(e) {
 	    if (this.props.swipeDisabled) {
+	      this.setState({
+	        dragging: false
+	      });
+
 	      return;
 	    }
 
@@ -583,6 +587,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  swipeMove: function swipeMove(e) {
 	    if (this.props.swipeDisabled) {
+	      this.setState({
+	        dragging: false
+	      });
+
 	      return;
 	    }
 
@@ -739,6 +747,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  swipeEnd: function swipeEnd(e) {
 	    if (this.props.swipeDisabled) {
+	      this.setState({
+	        dragging: false
+	      });
+
 	      return;
 	    }
 
